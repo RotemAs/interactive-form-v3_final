@@ -1,4 +1,3 @@
-// console.log('test')
 // globals
 const userName = document.getElementById("name");
 const otherJobRole = document.getElementById("other-job-role");
@@ -47,7 +46,6 @@ jobRole.addEventListener("change", (e) => {
 const jspuns = document.getElementsByClassName("jspuns");
 // shirtColor.style.display = 'none'
 colorSelect.disabled = true;
-console.log("test color400", colorSelect);
 designSelect.addEventListener("change", (e) => {
   for (let i = 1; i < childColor.length; i++) {
     let targetValue = e.target.value;
@@ -132,8 +130,10 @@ function isValidName() {
   } else {
     userName.parentNode.className = "not-valid";
     userName.parentNode.lastElementChild.style.display = "block";
-    userName.parentNode.lastElementChild.textContent =
+    userName.parentNode.lastElementChild.textContent = 
+  
       "You sure this is your name?";
+     
     return nameRegEx;
   }
 }
