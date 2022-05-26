@@ -177,6 +177,9 @@ function isValidActivities() {
 function isValidCardNumber() {
   //regex tests start of string,matches any digits between 13 and 16 characters
   const cardNumberRegEx = /^\d{13,16}$/.test(CardNum.value);
+  const cardNumberRegExWithLetters = /.*[a-zA-Z].*/.test(CardNum.value)
+  const cardNumberRegExWithSymbols = /[!@#$%^&*(),.?":{}|<>]/.test(CardNum.value)
+
   if (cardNumberRegEx === true) {
     CardNum.parentNode.className = "valid";
     CardNum.parentNode.lastElementChild.style.display = "none";
@@ -186,6 +189,14 @@ function isValidCardNumber() {
     CardNum.parentNode.lastElementChild.style.display = "block";
     CardNum.parentNode.lastElementChild.textContent =
       "Hmm, this dosent look correct, try again?";
+      if(cardNumberRegExWithLetters===true){
+        CardNum.parentNode.lastElementChild.textContent +='\n *Unauthorized letters appear in a credit card number(L)'
+    }
+    if(cardNumberRegExWithSymbols ===true){
+      CardNum.parentNode.lastElementChild.textContent +='\n *Unauthorized Symbols appear in a credit card number (S)'
+    }
+    console.log('test 7 \n cardNumberRegEx:',cardNumberRegEx,
+    ' \n cardNumberRegExWithLetters :',cardNumberRegExWithLetters,' \n cardNumberRegExWithSymbols :',cardNumberRegExWithSymbols )
     return cardNumberRegEx;
   }
 }
