@@ -188,15 +188,14 @@ function isValidCardNumber() {
     CardNum.parentNode.className = "not-valid";
     CardNum.parentNode.lastElementChild.style.display = "block";
     CardNum.parentNode.lastElementChild.textContent =
-      "Hmm, this dosent look correct, try again?";
+      "this not correct card number please try again \n";
       if(cardNumberRegExWithLetters===true){
         CardNum.parentNode.lastElementChild.textContent +='\n *Unauthorized letters appear in a credit card number(L)'
     }
     if(cardNumberRegExWithSymbols ===true){
       CardNum.parentNode.lastElementChild.textContent +='\n *Unauthorized Symbols appear in a credit card number (S)'
     }
-    console.log('test 7 \n cardNumberRegEx:',cardNumberRegEx,
-    ' \n cardNumberRegExWithLetters :',cardNumberRegExWithLetters,' \n cardNumberRegExWithSymbols :',cardNumberRegExWithSymbols )
+    
     return cardNumberRegEx;
   }
 }
